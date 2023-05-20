@@ -95,6 +95,53 @@
   <div> 
     <h2>A cada terça-feira, serão disponibilizados vídeos adicionais sobre o assunto em questão. Solicitamos sua paciência, pois isso ocorrerá semanalmente.</h2>
   </div>
+  <head>
+    <title>Contagem Regressiva</title>
+    <p>
+
+
+      
+    </p>
+    <style>
+      #countdown {
+        font-size: 48px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown"></div>
+  
+    <script>
+      // Data e hora para a contagem regressiva (atualize de acordo com sua preferência)
+      var countdownDate = new Date("2023-05-24T12:00:00Z").getTime();
+  
+      // Atualização do relógio a cada segundo
+      var countdown = setInterval(function() {
+        // Data e hora atual
+        var now = new Date().getTime();
+  
+        // Diferença entre a data e hora atual e a data e hora da contagem regressiva
+        var distance = countdownDate - now;
+  
+        // Cálculos para dias, horas, minutos e segundos
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+        // Exibição da contagem regressiva
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+  
+        // Verificação se a contagem regressiva terminou
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML = "EXPIRADO!";
+        }
+      }, 1000);
+    </script>
+  </body>
 </body>
 
 </html>
